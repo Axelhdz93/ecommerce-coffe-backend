@@ -1,61 +1,66 @@
-# 🚀 Getting started with Strapi
+# ⚙️ Coffee E-Commerce — Backend (Strapi CMS)
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+Servidor y panel de administración *Headless CMS* desarrollado con **Strapi** para gestionar el catálogo de productos, categorías, órdenes y contenido multimedia del e-commerce de café.
 
-### `develop`
-
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
-
-```
-npm run develop
-# or
-yarn develop
-```
-
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-```
-yarn strapi deploy
-```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+🌐 **Tienda en Vivo (Frontend):** [Ir a la aplicación en Vercel](https://ecommerce-coffe-65yf.vercel.app/)  
+💻 **Repositorio Frontend:** [Ver código en Next.js](https://ecommerce-coffe-backend-6st6.onrender.com/admin/auth/login)
 
 ---
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+## 🛠️ Stack Tecnológico
+
+* **CMS & API:** Strapi (Node.js)
+* **Base de Datos:** PostgreSQL (Alojada en Neon DB)
+* **Almacenamiento Multimedia:** Cloudinary (Optimización y CDN de imágenes)
+* **Despliegue:** Render
+
+---
+
+## ✨ Arquitectura y Características
+
+* **API RESTful:** Endpoints estructurados y optimizados para el consumo directo desde el cliente en Next.js.
+* **Base de Datos en la Nube:** Persistencia relacional configurada en producción con **PostgreSQL** sobre **Neon**.
+* **Gestión de Archivos:** Integración nativa con el proveedor de **Cloudinary** para evitar la pérdida de imágenes en despliegues efímeros.
+* **Control de Acceso:** Configuración de roles y permisos públicos para lectura segura de productos y categorías.
+
+---
+
+## 🚀 Instalación y Uso Local
+
+1. **Clona el repositorio:**
+   ```bash
+   git clone https://github.com
+   cd tu-repo-backend
+   ```
+
+2. **Instala las dependencias:**
+   ```bash
+   npm install
+   ```
+
+3. **Configura las variables de entorno:**
+   Crea un archivo `.env` en la raíz del proyecto y completa los valores correspondientes a tu base de datos y credenciales de Cloudinary:
+   ```env
+   HOST=0.0.0.0
+   PORT=1337
+   APP_KEYS="tu_app_key_1,tu_app_key_2"
+   API_TOKEN_SALT=tu_api_token_salt
+   ADMIN_JWT_SECRET=tu_admin_jwt_secret
+   TRANSFER_TOKEN_SALT=tu_transfer_token_salt
+   JWT_SECRET=tu_jwt_secret
+
+   # Base de datos (PostgreSQL / Neon)
+   DATABASE_CLIENT=postgres
+   DATABASE_URL=postgresql://usuario:password@host/nombre_db?sslmode=require
+
+   # Almacenamiento de imágenes (Cloudinary)
+   CLOUDINARY_NAME=tu_cloud_name
+   CLOUDINARY_KEY=tu_api_key
+   CLOUDINARY_SECRET=tu_api_secret
+   ```
+
+4. **Inicia el servidor en modo desarrollo:**
+   ```bash
+   npm run develop
+   ```
+   Accede al panel de administración en [http://localhost:1337/admin](http://localhost:1337/admin).
